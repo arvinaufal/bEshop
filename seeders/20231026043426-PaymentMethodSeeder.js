@@ -3,19 +3,13 @@
 /** @type {import('sequelize-cli').Migration} */
 module.exports = {
   async up (queryInterface, Sequelize) {
-    let users = require('../jsons/users.json');
-    // let userDetails = require('../jsons/userDetails.json');
+    let paymentMethods = require('../jsons/paymentMethods.json');
 
-    users.forEach((d) => {
+    paymentMethods.forEach((d) => {
       d.createdAt = d.updatedAt = new Date();
     });
-    // userDetails.forEach((d) => {
-    //   d.createdAt = d.updatedAt = new Date();
-    // });
 
-    // await queryInterface.bulkInsert('Users', users);
-    console.log(users);
-    // await queryInterface.bulkInsert('UserDetails', userDetails);
+    await queryInterface.bulkInsert('PaymentMethods', paymentMethods);
     /**
      * Add seed commands here.
      *
@@ -28,8 +22,7 @@ module.exports = {
   },
 
   async down (queryInterface, Sequelize) {
-    await queryInterface.bulkDelete('Users', null, {});
-    await queryInterface.bulkDelete('UserDetails', null, {});
+    await queryInterface.bulkDelete('PaymentMethods', null, {})
     /**
      * Add commands to revert seed here.
      *

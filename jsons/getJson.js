@@ -10,7 +10,7 @@ const bcrypt = require('bcryptjs');
                 const UserId = Math.ceil(Math.random() * 10);
 
                 return {
-                    photo : thumbnail,
+                    photoUrl : thumbnail,
                     name : title,
                     description,
                     price,
@@ -35,20 +35,17 @@ const bcrypt = require('bcryptjs');
             const response = await axios.get('https://randomuser.me/api/?results=20&nat=us');
 
             let users = response.data.results.map(el => {
-                const {gender, name, location, email, login, picture, phone, dob} = el;
-                const UserId = Math.ceil(Math.random() * 20);
+                const {email, login} = el;
                 const salt = bcrypt.genSaltSync(10);
                 const password = bcrypt.hashSync(login.password, salt);
-                return [
-                    {
+                return {
                         email,
                         password
-                    }
-                ];
+                    };
             });
 
             let userDetails = response.data.results.map(el => {
-                const {gender, name, location, email, login, picture, phone, dob} = el;
+                const {gender, name, location, picture, phone, dob} = el;
                 const UserId = Math.ceil(Math.random() * 20);
                 return {
                         fullName : `${name.first} ${name.last}`,
