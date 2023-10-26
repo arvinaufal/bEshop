@@ -19,7 +19,18 @@ module.exports = (sequelize, DataTypes) => {
     address: DataTypes.STRING,
     birthDate: DataTypes.STRING,
     gender: DataTypes.STRING,
-    UserId: DataTypes.INTEGER,
+    UserId: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      validate: {
+        notNull : {
+          msg : `UserId is required!`
+        },
+        notEmpty : {
+          msg : `UserId is required!`
+        }
+      }
+    },
     photoProfile: DataTypes.STRING
   }, {
     sequelize,
