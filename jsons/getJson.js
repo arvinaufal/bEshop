@@ -32,7 +32,7 @@ const bcrypt = require('bcryptjs');
 
     async function getUsers() {
         try {
-            const response = await axios.get('https://randomuser.me/api/?results=20');
+            const response = await axios.get('https://randomuser.me/api/?results=20&nat=us');
 
             let users = response.data.results.map(el => {
                 const {gender, name, location, email, login, picture, phone, dob} = el;

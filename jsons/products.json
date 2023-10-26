@@ -17,7 +17,7 @@
     "totalSales": 0,
     "category": "smartphones",
     "stock": 34,
-    "UserId": 4
+    "UserId": 1
   },
   {
     "photo": "https://i.dummyjson.com/data/products/3/thumbnail.jpg",
@@ -27,7 +27,7 @@
     "totalSales": 0,
     "category": "smartphones",
     "stock": 36,
-    "UserId": 2
+    "UserId": 4
   },
   {
     "photo": "https://i.dummyjson.com/data/products/4/thumbnail.jpg",
@@ -37,7 +37,7 @@
     "totalSales": 0,
     "category": "smartphones",
     "stock": 123,
-    "UserId": 6
+    "UserId": 2
   },
   {
     "photo": "https://i.dummyjson.com/data/products/5/thumbnail.jpg",
@@ -47,7 +47,7 @@
     "totalSales": 0,
     "category": "smartphones",
     "stock": 32,
-    "UserId": 3
+    "UserId": 5
   },
   {
     "photo": "https://i.dummyjson.com/data/products/6/thumbnail.png",
@@ -57,7 +57,7 @@
     "totalSales": 0,
     "category": "laptops",
     "stock": 83,
-    "UserId": 2
+    "UserId": 3
   },
   {
     "photo": "https://i.dummyjson.com/data/products/7/thumbnail.jpg",
@@ -67,7 +67,7 @@
     "totalSales": 0,
     "category": "laptops",
     "stock": 50,
-    "UserId": 7
+    "UserId": 8
   },
   {
     "photo": "https://i.dummyjson.com/data/products/8/thumbnail.jpg",
@@ -77,7 +77,7 @@
     "totalSales": 0,
     "category": "laptops",
     "stock": 68,
-    "UserId": 5
+    "UserId": 3
   },
   {
     "photo": "https://i.dummyjson.com/data/products/9/thumbnail.jpg",
@@ -87,7 +87,7 @@
     "totalSales": 0,
     "category": "laptops",
     "stock": 96,
-    "UserId": 6
+    "UserId": 7
   },
   {
     "photo": "https://i.dummyjson.com/data/products/10/thumbnail.jpeg",
@@ -97,7 +97,7 @@
     "totalSales": 0,
     "category": "laptops",
     "stock": 89,
-    "UserId": 5
+    "UserId": 6
   },
   {
     "photo": "https://i.dummyjson.com/data/products/11/thumbnail.jpg",
@@ -107,7 +107,7 @@
     "totalSales": 0,
     "category": "fragrances",
     "stock": 65,
-    "UserId": 5
+    "UserId": 6
   },
   {
     "photo": "https://i.dummyjson.com/data/products/12/thumbnail.jpg",
@@ -117,7 +117,7 @@
     "totalSales": 0,
     "category": "fragrances",
     "stock": 52,
-    "UserId": 2
+    "UserId": 4
   },
   {
     "photo": "https://i.dummyjson.com/data/products/13/thumbnail.webp",
@@ -127,7 +127,7 @@
     "totalSales": 0,
     "category": "fragrances",
     "stock": 61,
-    "UserId": 1
+    "UserId": 7
   },
   {
     "photo": "https://i.dummyjson.com/data/products/14/thumbnail.jpg",
@@ -137,7 +137,7 @@
     "totalSales": 0,
     "category": "fragrances",
     "stock": 114,
-    "UserId": 5
+    "UserId": 4
   },
   {
     "photo": "https://i.dummyjson.com/data/products/15/thumbnail.jpg",
@@ -157,7 +157,7 @@
     "totalSales": 0,
     "category": "skincare",
     "stock": 110,
-    "UserId": 3
+    "UserId": 1
   },
   {
     "photo": "https://i.dummyjson.com/data/products/17/thumbnail.jpg",
@@ -167,7 +167,7 @@
     "totalSales": 0,
     "category": "skincare",
     "stock": 78,
-    "UserId": 10
+    "UserId": 2
   },
   {
     "photo": "https://i.dummyjson.com/data/products/18/thumbnail.jpg",
@@ -177,7 +177,7 @@
     "totalSales": 0,
     "category": "skincare",
     "stock": 88,
-    "UserId": 5
+    "UserId": 4
   },
   {
     "photo": "https://i.dummyjson.com/data/products/19/thumbnail.jpg",
@@ -197,7 +197,7 @@
     "totalSales": 0,
     "category": "skincare",
     "stock": 140,
-    "UserId": 7
+    "UserId": 3
   },
   {
     "photo": "https://i.dummyjson.com/data/products/21/thumbnail.png",
@@ -207,7 +207,7 @@
     "totalSales": 0,
     "category": "groceries",
     "stock": 133,
-    "UserId": 5
+    "UserId": 6
   },
   {
     "photo": "https://i.dummyjson.com/data/products/22/thumbnail.jpg",
@@ -217,7 +217,7 @@
     "totalSales": 0,
     "category": "groceries",
     "stock": 146,
-    "UserId": 7
+    "UserId": 6
   },
   {
     "photo": "https://i.dummyjson.com/data/products/23/thumbnail.jpg",
@@ -227,7 +227,7 @@
     "totalSales": 0,
     "category": "groceries",
     "stock": 26,
-    "UserId": 6
+    "UserId": 2
   },
   {
     "photo": "https://i.dummyjson.com/data/products/24/thumbnail.jpg",
@@ -237,7 +237,7 @@
     "totalSales": 0,
     "category": "groceries",
     "stock": 113,
-    "UserId": 7
+    "UserId": 10
   },
   {
     "photo": "https://i.dummyjson.com/data/products/25/thumbnail.jpg",
@@ -257,7 +257,7 @@
     "totalSales": 0,
     "category": "home-decoration",
     "stock": 131,
-    "UserId": 4
+    "UserId": 9
   },
   {
     "photo": "https://i.dummyjson.com/data/products/27/thumbnail.webp",
@@ -267,7 +267,7 @@
     "totalSales": 0,
     "category": "home-decoration",
     "stock": 17,
-    "UserId": 8
+    "UserId": 4
   },
   {
     "photo": "https://i.dummyjson.com/data/products/28/thumbnail.jpg",
@@ -277,7 +277,7 @@
     "totalSales": 0,
     "category": "home-decoration",
     "stock": 54,
-    "UserId": 2
+    "UserId": 3
   },
   {
     "photo": "https://i.dummyjson.com/data/products/29/thumbnail.webp",
@@ -287,7 +287,7 @@
     "totalSales": 0,
     "category": "home-decoration",
     "stock": 7,
-    "UserId": 1
+    "UserId": 5
   },
   {
     "photo": "https://i.dummyjson.com/data/products/30/thumbnail.jpg",
@@ -297,6 +297,6 @@
     "totalSales": 0,
     "category": "home-decoration",
     "stock": 54,
-    "UserId": 4
+    "UserId": 2
   }
 ]
