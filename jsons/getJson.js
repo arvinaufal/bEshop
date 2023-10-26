@@ -38,9 +38,12 @@ const bcrypt = require('bcryptjs');
                 const {email, login} = el;
                 const salt = bcrypt.genSaltSync(10);
                 const password = bcrypt.hashSync(login.password, salt);
+                const role = ["seller", "buyer"];
+                const i = Math.floor(Math.random() * 2);
                 return {
                         email,
-                        password
+                        password,
+                        role : role[i]
                     };
             });
 
