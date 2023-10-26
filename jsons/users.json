@@ -1,82 +1,102 @@
 [
   {
-    "email": "reginald.barnett@example.com",
-    "password": "$2a$10$DYqY4rwWDhS2vwsIwmb3AeKROEisENCxw6bEaS30MDrunhAPYNUQO"
+    "email": "tom.perry@example.com",
+    "password": "$2a$10$4xEvbA0f7bUGOkRlJ8Vzg.Uzln4JCbVtqBOpW.40mxlU4JJ4mOV4a",
+    "role": "buyer"
   },
   {
-    "email": "jack.clark@example.com",
-    "password": "$2a$10$aJ4RQAdFy5oATO0c0v7.cOVlgALjH5GLGNNVLZbCDxtpAzBwSP6yO"
+    "email": "joann.dunn@example.com",
+    "password": "$2a$10$1N5TP65Rdu3PLNz595WTEu7heVJyDszkCflvuNmF/E0fNz/59o0i2",
+    "role": "buyer"
   },
   {
-    "email": "douglas.holmes@example.com",
-    "password": "$2a$10$68o9idA75l1EhsEROjAsv.eJwy5crOd79thPnqtrn3XuRYlQEQaq2"
+    "email": "zachary.lambert@example.com",
+    "password": "$2a$10$KJ3UuLjp1afA45WrmYs3T.RP6A1capsAW5atQPWgMidnHbbVxzhh.",
+    "role": "buyer"
   },
   {
-    "email": "chloe.gibson@example.com",
-    "password": "$2a$10$TKrd/mQkFSaxbhYKbC9XzezOoydbXl74k8ZLnLORAK9jd2BwUwQj."
+    "email": "jimmie.kelley@example.com",
+    "password": "$2a$10$PLnuZOTma81kB7ScqQd34uUd.ZWVt8NG6O3i4MMq0EnMAqyMxDSz.",
+    "role": "buyer"
   },
   {
-    "email": "landon.kelley@example.com",
-    "password": "$2a$10$lrqwhS57h9a/cT96pMJ/vOEz6y2IK/s7ALI41qlNPTtDKjN1A9KTm"
+    "email": "enrique.knight@example.com",
+    "password": "$2a$10$G3e06rlshWLRDebBm970z.258lkhFoxNiPD9Ap8.MuebwjzLSMAk.",
+    "role": "buyer"
   },
   {
-    "email": "william.richardson@example.com",
-    "password": "$2a$10$jUZAcpJzsiJ7kOO6SXGj2e9wI7KcGK6OuItyJDI8wZq.jxYo6jCuu"
+    "email": "ricky.stewart@example.com",
+    "password": "$2a$10$Ww3ZzAA5lQTnqJLss7Q1.edxfO1oMH3B6lUsf2X6lA7DyqvRkzXHa",
+    "role": "seller"
   },
   {
-    "email": "mario.powell@example.com",
-    "password": "$2a$10$WKD6XFORI12l/MAbg4iSreF66gjbXFyhijsdnViLEk9aBjm2tSCdC"
+    "email": "steven.fowler@example.com",
+    "password": "$2a$10$A2xuCCYQKxWiomPVO1RrluBhS9wno7aF4w54qv9YEx/RPtWbdzOFa",
+    "role": "seller"
   },
   {
-    "email": "delores.morrison@example.com",
-    "password": "$2a$10$feXDuFMFT4StKOvX6XRBUu43Qh3NHqbwviAZe6yeIx1LeV9Ar0tGu"
+    "email": "terry.kelly@example.com",
+    "password": "$2a$10$L2cvZjpJwiGln8WFvjcpqeNX36Of8W7SbjTbDatb23/va3RQn5GzS",
+    "role": "buyer"
   },
   {
-    "email": "susan.byrd@example.com",
-    "password": "$2a$10$Ym7ohfSfaTns3GRgpKdrROtZ2hC6sL6tVN2cOy2Bz8qeqADQSvzjm"
+    "email": "terra.day@example.com",
+    "password": "$2a$10$2lsk7Keoz.2djGAKJJYmp.zpmXsgYu9KYbUY7HjyPSPNWrtLLYZS.",
+    "role": "buyer"
   },
   {
-    "email": "levi.miles@example.com",
-    "password": "$2a$10$QpfEKHIJzj2UUFw/PFCtH.m/I2IfkEjpS3wZrHPc07llUWJ7QsBGS"
+    "email": "wade.schmidt@example.com",
+    "password": "$2a$10$iX0HT84g9j/1LoHaQjtIJ.aVMP/80oxs/KYoEXqXaVD6sZ8TzyvRW",
+    "role": "buyer"
   },
   {
-    "email": "sebastian.ortiz@example.com",
-    "password": "$2a$10$dIlqZczbNMSxI9tg699MQOCVqiUNWGoOZDIZ3hxOuk/4OYyMHM3S6"
+    "email": "madison.powell@example.com",
+    "password": "$2a$10$OL7jxGlgMuYiyv82XmwBJOaAbEj7Vp3sRkmfYhFaHzig7zwGmeHH.",
+    "role": "seller"
   },
   {
-    "email": "zachary.hudson@example.com",
-    "password": "$2a$10$T0.Drsl/wevoQh8FMTo7.eL0yLdoju6NLLjz2ld178mbx88gwWdVG"
+    "email": "howard.rogers@example.com",
+    "password": "$2a$10$LQoXaCUhujlsWm8U28R1wekOnKb08A4uMuju7G3JBJtylMhUhYdQi",
+    "role": "buyer"
   },
   {
-    "email": "john.lane@example.com",
-    "password": "$2a$10$cZD0SFuAYS9mjhD6g9zFK.C83WJDc4LpjadSJqNQy.dci3PJ/YQ7a"
+    "email": "christopher.stone@example.com",
+    "password": "$2a$10$b2OUqzMnSp202xNkT0yxvO00nszsnUyetV.U1/3QYE7Y6tGyYh8RK",
+    "role": "buyer"
   },
   {
-    "email": "naomi.graves@example.com",
-    "password": "$2a$10$a1W3FA/eeAn5ZBAT7cA.y.n7Tb15pHee2AvqwVAQoxWOXNJemRMdq"
+    "email": "pedro.moreno@example.com",
+    "password": "$2a$10$HUPhG4DyRF176Dud41uak.BddApQuVtBCzUU31g.kNFQvt8NkcE1i",
+    "role": "buyer"
   },
   {
-    "email": "rafael.armstrong@example.com",
-    "password": "$2a$10$rbj4OHM6o.RtOpFlKmUQf.1snQe8BPiURboz22GBOmXsRssHjWD0a"
+    "email": "peyton.mckinney@example.com",
+    "password": "$2a$10$l7RU9AIYqzK9CQWLu2JATeAkBrRzsOVFIl2BgLWSBodm42/e4YXSi",
+    "role": "seller"
   },
   {
-    "email": "johnny.kelley@example.com",
-    "password": "$2a$10$3XRQo68tdiFBz6pvLsWc9.llrFWHTf4ioDlxHesKAX9DDG1MiKfCK"
+    "email": "sue.reynolds@example.com",
+    "password": "$2a$10$rzrguX1MRZEl.2nCx.xTqeExN.gPHpUUU305g3e.LV.0LAqjucNee",
+    "role": "seller"
   },
   {
-    "email": "chloe.ross@example.com",
-    "password": "$2a$10$BUQZUHQ1JxMeCpdY66XASefpiglmJ7ZXZXmDtA6L7X5Z8Ql64gzf6"
+    "email": "samantha.harris@example.com",
+    "password": "$2a$10$5llD8vyUqZgjc4oAidR4felDu50yGu0/XqKOcR7Mq0Y2xkjgwnRzq",
+    "role": "buyer"
   },
   {
-    "email": "enrique.holt@example.com",
-    "password": "$2a$10$iL8l16pAX2YJOcMP6DYhN.VlIM0nYmrRXJvp957Ee.gDsASXSmd/G"
+    "email": "eli.simmons@example.com",
+    "password": "$2a$10$s8mYvsguZfzvB76WY0IBle.IMBFY0YOGcNJhcISbyrHCIdJEXQeS.",
+    "role": "seller"
   },
   {
-    "email": "rosa.butler@example.com",
-    "password": "$2a$10$Tuh95DShJqe8itH9lza77uk0bx/Y3EwpeThxUAW4QztT3kRRvrrrW"
+    "email": "milton.hernandez@example.com",
+    "password": "$2a$10$S8IWRlp1ysSxR/LKKKHZAuuDn50B4llBuooEc9I5t.HvN1ZboXgze",
+    "role": "seller"
   },
   {
-    "email": "jim.stone@example.com",
-    "password": "$2a$10$jZ6h8QDA1fVEqt6f49IeuerJxvW9CDh7E9wgmUlmxXldmWvjMFnEe"
+    "email": "juanita.dixon@example.com",
+    "password": "$2a$10$Pw.R4gVmvI9qKH.K75TCwO.1cWcUxE2LAjCbghApEQg6RqXHNeiXO",
+    "role": "seller"
   }
 ]

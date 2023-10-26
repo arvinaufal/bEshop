@@ -4,18 +4,17 @@
 module.exports = {
   async up (queryInterface, Sequelize) {
     let users = require('../jsons/users.json');
-    // let userDetails = require('../jsons/userDetails.json');
+    let userDetails = require('../jsons/userDetails.json');
 
     users.forEach((d) => {
       d.createdAt = d.updatedAt = new Date();
     });
-    // userDetails.forEach((d) => {
-    //   d.createdAt = d.updatedAt = new Date();
-    // });
+    userDetails.forEach((d) => {
+      d.createdAt = d.updatedAt = new Date();
+    });
 
-    // await queryInterface.bulkInsert('Users', users);
-    console.log(users);
-    // await queryInterface.bulkInsert('UserDetails', userDetails);
+    await queryInterface.bulkInsert('Users', users);
+    await queryInterface.bulkInsert('UserDetails', userDetails);
     /**
      * Add seed commands here.
      *
