@@ -47,16 +47,15 @@ const bcrypt = require('bcryptjs');
                     };
             });
 
-            let userDetails = response.data.results.map(el => {
+            let userDetails = response.data.results.map((el, i) => {
                 const {gender, name, location, picture, phone, dob} = el;
-                const UserId = Math.ceil(Math.random() * 20);
                 return {
                         fullName : `${name.first} ${name.last}`,
                         phone,
                         address : `${location.street.name}, number: ${location.street.number}, ${location.city}, ${location.state}, ${location.country}`,
                         birthDate : dob.date,
                         gender,
-                        UserId,
+                        UserId: ++i,
                         photoProfile : picture.thumbnail
                 };
             });

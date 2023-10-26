@@ -12,9 +12,9 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       User.hasOne(models.UserDetail);
-
       User.hasMany(models.Product, { as: 'Seller'});
-      User.belongsToMany(models.Product, { through: 'Orders' });
+      // User.hasMany(models.Order, { as: 'Buyer'});
+      User.belongsToMany(models.Product, { through: 'Orders', as: 'Buyer' });
 
     }
   }

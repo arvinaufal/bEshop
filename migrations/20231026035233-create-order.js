@@ -25,7 +25,7 @@ module.exports = {
           key: 'id'
         }
       },
-      jumlahItem: {
+      totalItem: {
         type: Sequelize.INTEGER,
         allowNull: false
       },
@@ -39,7 +39,6 @@ module.exports = {
       },
       PaymentMethodId: {
         type: Sequelize.INTEGER,
-        allowNull: false,
         references: {
           model: 'PaymentMethods',
           key: 'id'

@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const { formatToDollar } = require('../helper');
 module.exports = (sequelize, DataTypes) => {
   class Product extends Model {
     /**
@@ -12,6 +13,10 @@ module.exports = (sequelize, DataTypes) => {
     static associate(models) {
       Product.belongsTo(models.User);
       Product.belongsToMany(models.User, { through: 'Orders' });
+    }
+
+    get priceInDollar() {
+      return formatToDollar(this.price);
     }
   }
   Product.init({
@@ -44,7 +49,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notNull: { msg: 'Price is required' },
-        notEmpty: { msg: 'Price is required' }
+        notEmpty: { msg: 'Price is required' },
+        min: {
+          args: 1,
+          msg: 'Price must be greater than $0'
+        }
       }
     },
     totalSales: DataTypes.INTEGER,
@@ -61,7 +70,11 @@ module.exports = (sequelize, DataTypes) => {
       allowNull: false,
       validate: {
         notNull: { msg: 'Stock is required' },
-        notEmpty: { msg: 'Stock is required' }
+        notEmpty: { msg: 'Stock is required' },
+        min: {
+          args: 1,
+          msg: 'Stock must be greater than 0'
+        }
       }
     },
     UserId: DataTypes.INTEGER
