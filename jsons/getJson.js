@@ -4,7 +4,7 @@ const bcrypt = require('bcryptjs');
 
     async function getProducts() {
         try {
-            const response = await axios.get('https://dummyjson.com/products');
+            const response = await axios.get('https://dummyjson.com/products?limit=100');
             let datas = response.data.products.map(el => {
                 const {title, description, price, stock, thumbnail, category} = el;
                 const UserId = Math.ceil(Math.random() * 10);

@@ -12,6 +12,7 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Order.belongsTo(models.PaymentMethod);
+      Order.belongsTo(models.Product);
       // Order.belongsTo(models.User, { as: 'Buyer' });
     }
 
