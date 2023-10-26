@@ -4,15 +4,13 @@ const express = require('express');
 const AuthController = require('../controllers/AuthController');
 const UserController = require('../controllers/UserController');
 const { checkLoginStatus, checkProfile } = require('../middlewares');
+const LandingPageController = require('../controllers/LandingPageController');
 const router = express.Router();
 
 // * auth
 
-router.get('/'); //Landing page
-router.get('/register', AuthController.registerPage); 
-router.post('/register', AuthController.register); // post
-router.get('/login', AuthController.loginPage);
-router.post('/login', AuthController.login); // post
+router.get('/', checkLoginStatus, checkProfile, LandingPageController.landingPage); //Landing page
+router.use('/auth', require('./auth'));
 
 
 

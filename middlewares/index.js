@@ -7,25 +7,39 @@ const router = express.Router();
 
 // * auth
 function checkLoginStatus(req, res, next) {
-    console.log(req.session);
+
     if (!req.session.userId) {
 
-        const error = 'Please login first!';
-        res.redirect(`/login?errors=${error}`);
+        //login ke LP
+        // if (req.session.role === "buyer") {
+            
+        //     next();
+        // } else {
+            
+            const error = 'Please login first!';
+            res.redirect(`/auth/login?errors=${error}`);
+        // }
     } else {
         if (!req.session.role) {
             
             const error = 'Invalid role!';
-            res.redirect(`/login?errors=${error}`);
+            res.redirect(`/auth/login?errors=${error}`);
         } else {
             
-            next();
+            //login ke cms
+            if (req.session.role === "seller" || req.session.role === "buyer") {
+                
+                next();
+            } else {
+                
+                const error = `Invalid role!`;
+                res.redirect(`/auth/login?errors=${error}`);
+            }
         }
     }
 }
 
 function checkProfile(req, res, next) {
-    console.log(req.session);
     if (req.session.profileEmptyField) {
 
         const error = 'Please fill your profile!';
