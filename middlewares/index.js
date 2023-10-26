@@ -7,18 +7,10 @@ const router = express.Router();
 
 // * auth
 function checkLoginStatus(req, res, next) {
-
     if (!req.session.userId) {
 
-        //login ke LP
-        // if (req.session.role === "buyer") {
-            
-        //     next();
-        // } else {
-            
-            const error = 'Please login first!';
-            res.redirect(`/auth/login?errors=${error}`);
-        // }
+        const error = 'Please login first!';
+        res.redirect(`/auth/login?errors=${error}`);
     } else {
         if (!req.session.role) {
             
@@ -26,9 +18,9 @@ function checkLoginStatus(req, res, next) {
             res.redirect(`/auth/login?errors=${error}`);
         } else {
             
-            //login ke cms
             if (req.session.role === "seller" || req.session.role === "buyer") {
                 
+                req.params.id = req.session.userId;
                 next();
             } else {
                 
@@ -40,10 +32,10 @@ function checkLoginStatus(req, res, next) {
 }
 
 function checkProfile(req, res, next) {
-    if (req.session.profileEmptyField) {
+    if (req.session.profileEmpty) {
 
         const error = 'Please fill your profile!';
-        res.redirect(`/profile/edit?errors=${error}`);
+        res.redirect(`/profile/add/${req.params.id}?errors=${error}`);
     } else {
        next();
     }

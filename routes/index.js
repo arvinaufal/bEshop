@@ -11,12 +11,9 @@ const router = express.Router();
 
 router.get('/', checkLoginStatus, checkProfile, LandingPageController.landingPage); //Landing page
 router.use('/auth', require('./auth'));
+router.use('/profile', require('./profile'));
 
-router.get('/profile'); // display profile (opt)
-router.get('/profile/edit', checkLoginStatus, checkProfile, UserController.formProfile); 
-
-router.post('/profile/edit'); // post
-
+// /profile/edit/
 // * buyer
 router.use('/products', require('./products'));
 
