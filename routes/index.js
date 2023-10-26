@@ -12,24 +12,13 @@ const router = express.Router();
 router.get('/', checkLoginStatus, checkProfile, LandingPageController.landingPage); //Landing page
 router.use('/auth', require('./auth'));
 
-
-
-
 router.get('/profile'); // display profile (opt)
 router.get('/profile/edit', checkLoginStatus, checkProfile, UserController.formProfile); 
 
 router.post('/profile/edit'); // post
 
 // * buyer
-router.get('/products');
-router.get('/products/:productId/detail');
-router.post('/products/:productId/chart'); // post
-router.post('/products/:productId/shipment'); // post
-router.get('/products/chart');
-router.get('/products/shipment');
-router.get('/products/payment');
-router.get('/products/payment/confirmation');
-router.post('/products/payment/confirmation'); // post
+router.use('/products', require('./products'));
 
 // * seller
 router.use('/sellers', require('./sellers'));
