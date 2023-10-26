@@ -20,39 +20,39 @@ class AuthController {
                 throw new Error('Password confimation is not match!');
             }
 
-            const newUser = await User.create({email, password, role});
-            await UserDetail.create({UserId : newUser.id});
+            await User.create({email, password, role});
+            // await UserDetail.create({UserId : newUser.id});
 
-            res.redirect('/login');
+            const notif = `Successfully Registered!`;
+            res.redirect(`/auth/login?notif=${notif}`);
         } catch (error) {
             if (error.name === "SequelizeValidationError") {
                 let errors = error.errors.map(er => {
                     return er.message;
                 });
 
-                res.redirect(`/register?errors=${errors}`);
+                res.redirect(`/auth/register?errors=${errors}`);
             } else {       
                 console.log(error);
-                res.redirect(`/register?errors=${error.message}`);
+                res.redirect(`/auth/register?errors=${error.message}`);
             }
         }
     }
 
     static async loginPage(req, res) {
-        const {errors} = req.query;
+        const {errors, notif} = req.query;
         try {
 
-            res.render('auth/login', {errors});
+            res.render('auth/login', {errors, notif});
         } catch (error) {
-            
+            console.log(error);
+            res.redirect(`/auth/login?errors=${error.message}`);
         }
     }
 
     static async login(req, res) {
         try {
             const {email, password} = req.body;
-            console.log(email, password);
-            console.log("email", "asxasc");
 
             let errorsReq = [];
             if (!email) {
@@ -71,7 +71,9 @@ class AuthController {
                 where: {
                     email : email
                 },
-                include: UserDetail
+                include : {
+                    model : UserDetail
+                }
             });
 
             if (!user) {
@@ -86,15 +88,13 @@ class AuthController {
 
                     req.session.userId = user.id;
                     req.session.role = user.role;
-
-                    const {fullName, phone, address} =  user.UserDetail;
-                    if (fullName === null || phone === null || address === null) {
-                        req.session.profileEmptyField = true;
+                    if (!user.UserDetail) {
+                        req.session.profileEmpty = true;
                     }
-
+            
                     if (user.role === 'seller') {
 
-                        res.redirect('/seller');
+                        res.redirect(`/sellers/${user.id}`);
                     } else if(user.role === 'buyer') {
 
                         res.redirect('/');
@@ -113,12 +113,24 @@ class AuthController {
                     return er.message;
                 });
 
-                res.redirect(`/login?errors=${errors}`);
+                res.redirect(`/auth/login?errors=${errors}`);
             } else {       
                 console.log(error);
-                res.redirect(`/login?errors=${error.message}`);
+                res.redirect(`/auth/login?errors=${error.message}`);
             }
         }
+        
+    }
+
+
+    static logout(req, res) {
+        req.session.destroy((err) => {
+            if (err) {
+                res.send('Logout Failed!');
+            } else {
+                res.redirect('/auth/login');
+            }
+        })
     }
 
 

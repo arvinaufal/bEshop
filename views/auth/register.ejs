@@ -31,8 +31,8 @@
                             <label class="input-group-text" for="inputGroupSelect01">Role</label>
                             <select class="form-select" id="inputGroupSelect01" name="role" required>
                                     <option selected disabled>---Choose Role---</option>
-                                <% ["seller", "buyer"].forEach(cmd => { %>
-                                    <option value="<%= cmd %>"><%= cmd %></option>
+                                <% ["seller", "buyer"].forEach(el => { %>
+                                    <option value="<%= el %>"><%= el %></option>
                                 <% }) %>
                             </select>
                         </div>
