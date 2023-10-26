@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <%- include('../partials/_header.ejs') %>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <div class="container mt-4 d-flex flex-column">
+      <div class="title container">
+        <h4>Cart</h4>
+      </div>
+
+      <div class="main-section row">
+        <div class="shipment-section container col-7 mt-3">
+
+          <!-- product -->
+          
+          <% orders.forEach(order => { %>
+            <% const { id, UserId, ProductId, totalItem, totalPrice, status, PaymentMethodId } = order; %>
+            <% const { photoUrl, name, description, priceInDollar, totalSales, category, stock } = order.Product; %>
+            <% const { email, role } = order.Product.User; %>
+            <% const { fullName, phone, birthDate, gender, photoProfile } = order.Product.User.UserDetail; %>
+            
+            <div class="product-section container border rounded mb-3 p-3" style="line-height: 15px;">
+              <div class="col-2 mt-2 mb-4">
+
+                <input type="radio" name="OrderId" id="order">
+                <label for="order">
+              </div>
+                      <h6><b><%= fullName %></b></h6>
+                      <p><%= phone %></p>
+          
+                      <!-- card -->
+                      <div class="card mb-3">
+                        <div class="row g-0">
+                          <div class="col-md-4">
+                            <img src="<%= photoUrl %>" class="img-fluid rounded-start h-100" alt="...">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h6 class="card-title"><%= name %></h6>
+                              <p class="card-text"><b><%= priceInDollar %> x <%= totalItem %>pcs</b></p>
+                              <p class="card-text"><%= description %></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+
+                      <div class="row justify-content-end" style="bottom: 0; right: 0; margin-right: 1rem;">
+                          <div class="col-2" style="margin-right: -40px;">
+                              <a href="/products/cart/<%= UserId %>/total/<%= id %>/decrement" class="btn btn-danger">-</a>
+                          </div>
+                          <div class="col-1 align-middle">
+                            <p style="margin-top: 10px; font-weight: bold;">
+
+                              <%= totalItem %>
+                            </p>
+                          </div>
+                          <div class="col-2" style="margin-left: -10px;">
+                              <a href="/products/cart/<%= UserId %>/total/<%= id %>/increment" class="btn btn-success">+</a>
+                          </div>
+                      </div>
+                      <!-- <div class="total d-flex flex-row justify-content-between">
+                        <h6><b>Subtotal</b></h6>
+                        <h6><b><% order.totalPriceInDollar %></b></h6>
+                      </div> -->
+                    </div>
+                  </label>
+          <% }) %>
+
+
+
+
+
+        </div>
+        <div class="payment-section container col-4 border rounded p-3 sticky-top" style="height: 200px; box-sizing: content-box;">
+        
+  
+         
+          <a href="" class="btn btn-success" style="width: 100%;">Checkout</a>
+        </div>
+      </div>
+    
+    <%- include('../partials/_footer.ejs') %>
+  </body>
+</html>

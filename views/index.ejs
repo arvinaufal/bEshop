@@ -45,8 +45,8 @@
                         Urutkan
                     </button>
                     <ul class="dropdown-menu dropdown-menu-end">
-                        <li><a href="/?sortBy=asc" class="dropdown-item" type="button">Termurah</a></li>
-                        <li><a href="/?sortBy=desc" class="dropdown-item" type="button">Termahal</a></li>
+                        <li><a href="/?sortBy=ASC" class="dropdown-item" type="button">Termurah</a></li>
+                        <li><a href="/?sortBy=DESC" class="dropdown-item" type="button">Termahal</a></li>
                     </ul>
                 </div>
             </div>
@@ -83,20 +83,32 @@
                         <div class="card-arvi">
                             <img src="<%= p.photoUrl %>" class="card-img-top" alt="...">
                             <div class="card-body">
-                                <h6 class="card-title" style="font-weight: bold; font-size: 24px;"><%= p.name %></h6>
+                                <h6 class="card-title" style="font-weight: bold; font-size: 24px; margin-bottom: 8px;"><%= p.name %></h6>
                                 <div class="d-flex">
                                     <span class="badge badge-pill discount-precentage"><%= p.category %></span>
                                     <span class="badge badge-pill discount-price"></span>
                                 </div>
-                                <p class="mt-1 mb-0" style="font-size: 14px;">Start From:</p>
-                                <h5 class="mt-1" style="font-weight: bold;"><%= p.price %><span style="font-size: 12px; color: #989898;"></span> </h5>
-                                <div class="d-flex align-items-center">
+                                <p class="mt-1 mb-0" style="font-size: 14px;">Price:</p>
+                                <h5 class="mt-1" style="font-weight: bold;"><%= p.priceInDollar %><span style="font-size: 12px; color: #989898;"></span> </h5>
+                                <div class="align-items-center">
                                     <!-- <img class="star-rating" src="assets/photos/icon-bintang.png" alt="">
                                     <img class="star-rating" src="assets/photos/icon-bintang.png" alt="">
                                     <img class="star-rating" src="assets/photos/icon-bintang.png" alt="">
                                     <img class="star-rating" src="assets/photos/icon-bintang.png" alt="">
                                     <img class="star-rating" src="assets/photos/icon-bintang.png" alt=""> -->
-                                    <span style="color: #989898;">Total Sales (<%= p.totalSales %>)</span>
+                                    <p style="color: #989898;" >Total Sales (<%= p.totalSales %>)</p>
+                                </div>
+                                <div class="d-flex justify-content-end align-items-center">
+                                    <div style="margin-right: 8px !important;">
+                                        <a href="" class="btn btn-outline-primary">Buy</a>
+                                    </div>
+                                    <div>
+                                    
+                                        <form action="/products/cart" method="post">
+                                            <input type="text" value="<%= p.id %>" name="ProductId" style="display: none;">
+                                            <input type="submit" class="btn btn-outline-info" value="Cart">
+                                        </form>
+                                    </div>
                                 </div>
                             </div>
                         </div>
