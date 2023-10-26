@@ -1,0 +1,26 @@
+[
+    {
+        "name": "Gopay",
+        "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/8/86/Gopay_logo.svg/1200px-Gopay_logo.svg.png"
+    },
+    {
+        "name": "Ovo",
+        "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/eb/Logo_ovo_purple.svg/2560px-Logo_ovo_purple.svg.png"
+    },
+    {
+        "name": "Qris",
+        "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/QRIS_logo.svg/2560px-QRIS_logo.svg.png"
+    },
+    {
+        "name": "Bank Mandiri",
+        "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/a/ad/Bank_Mandiri_logo_2016.svg/2560px-Bank_Mandiri_logo_2016.svg.png"
+    },
+    {
+        "name": "Bank BCA",
+        "logoUrl" : "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Bank_Central_Asia.svg/1200px-Bank_Central_Asia.svg.png"
+    },
+    {
+        "name": "Bank BNI",
+        "logoUrl" : "https://upload.wikimedia.org/wikipedia/id/thumb/5/55/BNI_logo.svg/2560px-BNI_logo.svg.png"
+    }
+]
