@@ -1,5 +1,6 @@
 'use strict';
 
+const { Op } = require('sequelize');
 const { Product } = require('../models');
 
 class SellerController {
@@ -16,13 +17,26 @@ class SellerController {
   static async getProducts(req, res) {
     try {
       const { sellerId } = req.params;
+      const { search, filter } = req.query;
+      let searchFilter = {
+        UserId: sellerId
+      };
+
+      if (search) {
+        searchFilter.name = {
+          [Op.iLike]: `%${search}%`
+        };
+      }
+
+      if (filter) {
+        searchFilter.category = filter;
+      }
+
       const products = await Product.findAll({
-        where: {
-          UserId: sellerId
-        }
+        where: searchFilter
       });
 
-      res.render('./sellers/products', { products, sellerId });
+      res.render('./sellers/products', { products, sellerId, filter });
     } catch (error) {
       console.log(error);
       res.send(error.message);

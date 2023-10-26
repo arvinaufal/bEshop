@@ -7,6 +7,34 @@
     <div class="container mt-4">
       <h1>List Products</h1>
 
+      <div class="filter-section mt-3 mb-3 d-flex">
+        <form action="/sellers/<%= sellerId %>/products" method="get" class="d-flex flex-row">
+          <div class="row g-3">
+            <div class="col-sm">
+              <input type="text" class="form-control" placeholder="Search by name" name="search">
+            </div>
+            <div class="col-sm">
+              <input type="submit" value="Search" class="btn btn-primary">
+            </div>
+          </div>
+        </form>
+
+        <form action="/sellers/<%= sellerId %>/products" method="get" class="d-flex flex-row">
+          <div class="filter-section mb-3">
+            <select id="inputCategory" class="form-select" name="filter">
+              <option selected disabled>-- Select Category --</option>
+              <% ['smartphones', 'laptops', 'fragrances', 'skincare', 'groceries', 'home-decoration'].forEach((category) => { %>
+                <option value="<%= category %>" <%= (filter === category) ? 'selected' : '' %>><%= category %></option>
+              <% }) %>
+            </select>
+          </div>
+          <div class="col-sm ms-3">
+            <input type="submit" value="Filter" class="btn btn-primary">
+          </div>
+        </form>
+
+      </div>
+
       <table class="table table-bordered mt-4">
         <thead class="table-light">
           <tr>
