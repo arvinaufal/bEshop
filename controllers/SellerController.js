@@ -33,7 +33,7 @@ class SellerController {
     try {
       const { sellerId } = req.params;
       const { errors } = req.query;
-      
+
       res.render('./sellers/productAdd', { sellerId, errors });
     } catch (error) {
       console.log(error);
@@ -70,8 +70,12 @@ class SellerController {
   }
 
   static async getEditProduct(req, res) {
+    
     try {
-      
+      const { sellerId, productId } = req.params;
+      const { errors } = req.query;
+      const product = await Product.findByPk(productId);
+      res.render('./sellers/productEdit', { product, sellerId, errors });
     } catch (error) {
       console.log(error);
       res.send(error.message);
@@ -79,9 +83,32 @@ class SellerController {
   }
 
   static async editProduct(req, res) {
+    const { sellerId, productId } = req.params;
+    const { name, price, category, stock, photoUrl, description } = req.body;
+
     try {
-      
+      await Product.update({
+        name,
+        price,
+        category,
+        stock,
+        photoUrl,
+        description
+      }, {
+        where: {
+          id: productId
+        }
+      });
+
+      res.redirect(`/sellers/${sellerId}/products`);
     } catch (error) {
+      if (error.name === 'SequelizeValidationError') {
+        const errors = error.errors.map((error) => {
+          return error.message;
+        });
+        res.redirect(`/sellers/${sellerId}/products/${productId}/edit?errors=${errors}`);
+        return
+      }
       console.log(error);
       res.send(error.message);
     }
@@ -89,7 +116,13 @@ class SellerController {
 
   static async deleteProduct(req, res) {
     try {
-      
+      const { sellerId, productId } = req.params;
+      await Product.destroy({
+        where: {
+          id: productId
+        }
+      })
+      res.redirect(`/sellers/${sellerId}/products`);
     } catch (error) {
       console.log(error);
       res.send(error.message);
