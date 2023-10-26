@@ -9,7 +9,7 @@
         <h4>Checkout</h4>
       </div>
 
-      <% const { totalItem, totalPriceInDollar } = order; %>
+      <% const { id, totalItem, totalPriceInDollar } = order; %>
       <% const { fullName, phone, address } = buyerDetail; %>
       <div class="main-section row">
         <div class="shipment-section container col-7 mt-3">
@@ -43,17 +43,13 @@
                 </div>
               </div>
             </div>
-            <!-- <div class="total d-flex flex-row justify-content-between">
-              <h6><b>Subtotal</b></h6>
-              <h6><b><% totalPriceInDollar %></b></h6>
-            </div> -->
           </div>
         </div>
-        <div class="payment-section container col-4 border rounded p-3 sticky-top" style="height: 200px; box-sizing: content-box;">
+        <form action="/products/<%= id %>/payment" method="post" class="payment-section container col-4 border rounded p-3 sticky-top" style="height: 200px; box-sizing: content-box;">
           <div class="mb-4">
             <label for="inputState" class="form-label">Payment Method</label>
             <select id="inputState" class="form-select" name="PaymentMethodId">
-              <option selected>Choose...</option>
+              <option selected disabled>Choose Payment</option>
               <% paymentMethods.forEach(({ id, name: method }) => { %>
                 <option value="<%= id %>"><%= method %></option>
               <% }) %>
@@ -64,8 +60,8 @@
             <h5>Total Price :</h5>
             <h5><%= totalPriceInDollar %></h5>
           </div>
-          <a href="" class="btn btn-success" style="width: 100%;">Payyyy</a>
-        </div>
+          <input type="submit" value="Pay" class="btn btn-success" style="width: 100%;">
+        </form>
       </div>
     
     <%- include('../partials/_footer.ejs') %>
