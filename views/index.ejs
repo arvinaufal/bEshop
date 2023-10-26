@@ -1,11 +1,115 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
+    <%- include('./partials/_header') %>
 <body>
-    <h1>Ini landing page</h1>
+    <%- include('./partials/_navbar') %>
+
+    <div class="container text-center mt-4 mb-4">
+        <div class="row align-items-center">
+            <div class="col-12">
+                <div id="carouselExampleIndicators" class="carousel slide">
+                    <div class="carousel-indicators">
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+                      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+                    </div>
+                    <div class="carousel-inner">
+                      <div class="carousel-item active">
+                        <img src="https://media.istockphoto.com/id/1206800961/photo/online-shopping-and-payment-man-using-tablet-with-shopping-cart-icon-digital-marketing.jpg?b=1&s=612x612&w=0&k=20&c=mwZYTXRUffNG-igVygp49KPbBT4Dp0va1MxomnP3j9M=" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="https://media.istockphoto.com/id/1428709516/photo/shopping-online-woman-hand-online-shopping-on-laptop-computer-with-virtual-graphic-icon.webp?b=1&s=170667a&w=0&k=20&c=ZhlW6F6fSu42EG13PO0hkgV0L-MqHipJm1hT0yaRl9U=" class="d-block w-100" alt="...">
+                      </div>
+                      <div class="carousel-item">
+                        <img src="https://assets-a1.kompasiana.com/items/album/2023/10/22/ecommerce-65342770edff7665e1006af2.jpg?t=o&v=780" class="d-block w-100" alt="...">
+                      </div>
+                    </div>
+                    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+                      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Previous</span>
+                    </button>
+                    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+                      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                      <span class="visually-hidden">Next</span>
+                    </button>
+                  </div>
+            </div>
+            
+        </div>
+    </div>
+    <div class="container mt-4 mb-4">
+        <div class="row justify-content-center">
+            <div class="col-lg-1">
+                <div class="btn-group dropdown">
+                    <button type="button" style="width: 100px; height: 40px; border-radius: 20px;" class="btn btn-primary dropdown-toggle mt-2" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                        Urutkan
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <li><a href="/?sortBy=asc" class="dropdown-item" type="button">Termurah</a></li>
+                        <li><a href="/?sortBy=desc" class="dropdown-item" type="button">Termahal</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-6" style="margin-left: 20px;">
+                <form action="" method="get">
+                    <div class="input-group border rounded-pill p-2">
+                        <input type="text" id="searchBar" class="form-control border-0" placeholder="Cari produk ..." style="border-top-left-radius: 20px; border-bottom-left-radius: 20px; border-right: none; border-width: 2px;" name="keyword">
+                        <div class="input-group-append">
+                            <input type="submit" class="btn btn-primary" style="border-radius: 20px; width: 100px; border-width: 2px;" value="Cari">
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-lg-1">
+                <div class="btn-group dropdown">
+                    <button type="button" style="width: 100px; height: 40px; border-radius: 20px;" class="btn btn-primary dropdown-toggle mt-2" data-bs-toggle="dropdown" data-bs-display="static" aria-expanded="false">
+                        Filter
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end">
+                        <% categories.forEach(el => { %>
+                            <li><a href="/?filterBy=<%= el %>" class="dropdown-item" type="button"><%= el %></a></li>
+                        <% }) %>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-4 mb-4">
+        <div class="row justify-content-center" style="margin-top: 80px;" id="gamelists">
+            <% if (products) { %>
+                <% products.forEach(p => { %>
+                    <div class="col-lg-3 mb-4">
+                        <div class="card-arvi">
+                            <img src="<%= p.photoUrl %>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h6 class="card-title" style="font-weight: bold; font-size: 24px;"><%= p.name %></h6>
+                                <div class="d-flex">
+                                    <span class="badge badge-pill discount-precentage"><%= p.category %></span>
+                                    <span class="badge badge-pill discount-price"></span>
+                                </div>
+                                <p class="mt-1 mb-0" style="font-size: 14px;">Start From:</p>
+                                <h5 class="mt-1" style="font-weight: bold;"><%= p.price %><span style="font-size: 12px; color: #989898;"></span> </h5>
+                                <div class="d-flex align-items-center">
+                                    <!-- <img class="star-rating" src="assets/photos/icon-bintang.png" alt="">
+                                    <img class="star-rating" src="assets/photos/icon-bintang.png" alt="">
+                                    <img class="star-rating" src="assets/photos/icon-bintang.png" alt="">
+                                    <img class="star-rating" src="assets/photos/icon-bintang.png" alt="">
+                                    <img class="star-rating" src="assets/photos/icon-bintang.png" alt=""> -->
+                                    <span style="color: #989898;">Total Sales (<%= p.totalSales %>)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                <% }) %>
+            <% } %>
+        </div>
+    </div>
+    
+    
+
+
+
+    <%- include('./partials/_footer') %>
 </body>
 </html>
