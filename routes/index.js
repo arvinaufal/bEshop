@@ -7,11 +7,9 @@ const router = express.Router();
 router.get('/');
 router.get('/register');
 router.post('/register'); // post
-router.get('/login/user');
-router.post('/login/user'); // post
-router.get('/login/seller');
-router.post('/login/seller'); // post
-router.get('/profile'); // display profile (opt)
+router.get('/login');
+router.post('/login'); // post
+// router.get('/profile'); // display profile (opt)
 router.get('/profile/edit'); 
 router.post('/profile/edit'); // post
 
@@ -27,10 +25,6 @@ router.get('/products/payment/confirmation');
 router.post('/products/payment/confirmation'); // post
 
 // * seller
-router.get('/sellers');
-router.get('/sellers/products');
-router.get('/sellers/products/add');
-router.get('/sellers/products/:productId/edit');
-router.get('/sellers/products/:productId/delete');
+router.use('/sellers', require('./sellers'));
 
 module.exports = router;

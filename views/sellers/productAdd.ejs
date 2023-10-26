@@ -1,0 +1,62 @@
+<!doctype html>
+<html lang="en">
+  <%- include('../partials/_header.ejs', { sellerId }) %>
+  <body>
+    <%- include('./_navbarSeller.ejs') %>
+
+    <div class="container mt-4 d-flex bg-body-tertiary">
+        <% if (errors) { %>
+        <div id="error-section" class="mt-4">
+          <% errors.split(',').forEach((error) => { %>
+            <p style="color: red;"><%= error %></p>
+          <% }) %>
+        </div>
+      <% } %>
+
+      <main>
+        <h1>Add Product</h1>
+  
+        <form action="/sellers/<%= sellerId %>/products/add" method="post" class="mt-3 row">
+          <div class="mb-3">
+            <label for="inputName" class="form-label">Product Name</label>
+            <input type="text" class="form-control" id="inputName" name="name">
+          </div>
+          <div class="mb-3">
+            <label for="inputPrice" class="form-label">Price</label>
+            <input type="number" class="form-control" id="inputPrice" name="price">
+          </div>
+  
+            <!-- select category -->
+          <div class="mb-3 col-md-4">
+            <label for="inputCategory" class="form-label">Category</label>
+            <select id="inputCategory" class="form-select" name="category">
+              <option selected disabled>-- Select Category --</option>
+              <% ['smartphones', 'laptops', 'fragrances', 'skincare', 'groceries', 'home-decoration'].forEach((category) => { %>
+                <option value="<%= category %>"><%= category %></option>
+              <% }) %>
+            </select>
+          </div>
+  
+          <div class="mb-3">
+            <label for="inputStock" class="form-label">Stock</label>
+            <input type="number" class="form-control" id="inputStock" name="stock">
+          </div>
+          <div class="mb-3">
+            <label for="inputUrl" class="form-label">Image URL</label>
+            <input type="text" class="form-control" id="inputUrl" name="photoUrl">
+          </div>
+          <div class="mb-3">
+            <label for="inputDescription" class="form-label">Description</label>
+            <textarea class="form-control" id="inputDescription" rows="4" name="description"></textarea>
+          </div>
+  
+          <div class="mb-3">
+            <input type="submit" value="Submit" class="btn btn-primary">
+          </div>
+        </form>
+      </main>
+    </div>
+    
+    <%- include('../partials/_footer.ejs') %>
+  </body>
+</html>

@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+  <%- include('../partials/_header.ejs', { sellerId }) %>
+  <body>
+    <%- include('./_navbarSeller.ejs') %>
+
+    <div class="container mt-4 d-flex bg-body-tertiary">
+      <% if (errors) { %>
+        <div id="error-section" class="mt-4">
+          <% errors.split(',').forEach((error) => { %>
+            <p style="color: red;"><%= error %></p>
+          <% }) %>
+        </div>
+      <% } %>
+
+      <main>
+        <h1>Edit Product</h1>
+  
+        <% const { id, name, price, category, stock, photoUrl, description } = product; %>
+        <form action="/sellers/<%= sellerId %>/products/<%= id %>/edit" method="post" class="mt-3 row">
+          <div class="mb-3">
+            <label for="inputName" class="form-label">Product Name</label>
+            <input type="text" class="form-control" id="inputName" name="name" value="<%= name %>">
+          </div>
+          <div class="mb-3">
+            <label for="inputPrice" class="form-label">Price</label>
+            <input type="number" class="form-control" id="inputPrice" name="price" value="<%= price %>">
+          </div>
+  
+            <!-- select category -->
+          <div class="mb-3 col-md-4">
+            <label for="inputCategory" class="form-label">Category</label>
+            <select id="inputCategory" class="form-select" name="category">
+              <option disabled>-- Select Category --</option>
+              <% ['smartphones', 'laptops', 'fragrances', 'skincare', 'groceries', 'home-decoration'].forEach((value) => { %>
+                <option value="<%= value %>" <%= (category === value) ? 'selected' : '' %>><%= value %></option>
+              <% }) %>
+            </select>
+          </div>
+  
+          <div class="mb-3">
+            <label for="inputStock" class="form-label">Stock</label>
+            <input type="number" class="form-control" id="inputStock" name="stock" value="<%= stock %>">
+          </div>
+          <div class="mb-3">
+            <label for="inputUrl" class="form-label">Image URL</label>
+            <input type="text" class="form-control" id="inputUrl" name="photoUrl" value="<%= photoUrl %>">
+          </div>
+          <div class="mb-3">
+            <label for="inputDescription" class="form-label">Description</label>
+            <textarea class="form-control" id="inputDescription" rows="4" name="description"><%= description %></textarea>
+          </div>
+  
+          <div class="mb-3">
+            <input type="submit" value="Submit" class="btn btn-primary">
+          </div>
+        </form>
+      </main>
+    </div>
+    
+    <%- include('../partials/_footer.ejs') %>
+  </body>
+</html>

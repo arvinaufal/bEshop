@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+  <%- include('../partials/_header.ejs', { sellerId }) %>
+  <body>
+    <%- include('./_navbarSeller.ejs') %>
+
+    <div class="container mt-4">
+      <h1>List Products</h1>
+
+      <div class="filter-section mt-3 mb-3 d-flex">
+        <form action="/sellers/<%= sellerId %>/products" method="get" class="d-flex flex-row">
+          <div class="row g-3">
+            <div class="col-sm">
+              <input type="text" class="form-control" placeholder="Search by name" name="search">
+            </div>
+            <div class="col-sm">
+              <input type="submit" value="Search" class="btn btn-primary">
+            </div>
+          </div>
+        </form>
+
+        <form action="/sellers/<%= sellerId %>/products" method="get" class="d-flex flex-row">
+          <div class="filter-section mb-3">
+            <select id="inputCategory" class="form-select" name="filter">
+              <option selected disabled>-- Select Category --</option>
+              <% ['smartphones', 'laptops', 'fragrances', 'skincare', 'groceries', 'home-decoration'].forEach((category) => { %>
+                <option value="<%= category %>" <%= (filter === category) ? 'selected' : '' %>><%= category %></option>
+              <% }) %>
+            </select>
+          </div>
+          <div class="col-sm ms-3">
+            <input type="submit" value="Filter" class="btn btn-primary">
+          </div>
+        </form>
+
+      </div>
+
+      <table class="table table-bordered mt-4">
+        <thead class="table-light">
+          <tr>
+            <th scope="col">No.</th>
+            <th scope="col">Name</th>
+            <th scope="col">Price</th>
+            <th scope="col">Category</th>
+            <th scope="col">Total Sales</th>
+            <th scope="col">Stock</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody class="table-group-divider">
+          <% products.forEach((product, i) => { %>
+            <% const { id, name, price, category, totalSales, stock } = product; %>
+            <tr>
+              <th scope="row"><%= ++i %></th>
+              <td><%= name %></td>
+              <td><%= price %></td>
+              <td><%= category %></td>
+              <td><%= totalSales %></td>
+              <td><%= stock %></td>
+              <td>
+                <a href="/sellers/<%= sellerId %>/products/<%= id %>/edit" class="btn btn-warning">Edit</a>
+                <a href="/sellers/<%= sellerId %>/products/<%= id %>/delete" class="btn btn-danger">Delete</a>
+              </td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+    
+    <%- include('../partials/_footer.ejs') %>
+  </body>
+</html>
