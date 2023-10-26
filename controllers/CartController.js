@@ -29,6 +29,7 @@ class CartController {
                 status : 'unpaid',
             }
 
+            let newOrder = null;
             if (isExist) {
                 totalItem += isExist.totalItem;
                 console.log(isExist.id)
@@ -40,11 +41,26 @@ class CartController {
                 });                
             }else{
 
-                await Order.create(data);
+                newOrder = await Order.create(data);
             }
 
+            const where = req.path.split('/').at(-1);
 
-            res.redirect(`/products/cart/user/${req.session.userId}`);
+            if (where === "cart") {
+                
+                res.redirect(`/products/cart/user/${req.session.userId}`);
+            }
+
+            if (where === "buy") {
+                if (isExist) {
+                    
+                    res.redirect(`/products/${isExist.id}/payment`);
+                }else{
+                    res.redirect(`/products/${newOrder.id}/payment`);
+                }
+                
+            }
+
         } catch (error) {
           console.log(error);
           res.send(error.message);
