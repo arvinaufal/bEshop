@@ -38,12 +38,10 @@ const bcrypt = require('bcryptjs');
                 const {email, login} = el;
                 const salt = bcrypt.genSaltSync(10);
                 const password = bcrypt.hashSync(login.password, salt);
-                return [
-                    {
+                return {
                         email,
                         password
-                    }
-                ];
+                    };
             });
 
             let userDetails = response.data.results.map(el => {
