@@ -10,6 +10,7 @@
       </div>
 
       <div class="main-section row">
+        <form action="/products/payment" method="post">
         <div class="shipment-section container col-7 mt-3">
 
           <!-- product -->
@@ -23,7 +24,7 @@
             <div class="product-section container border rounded mb-3 p-3" style="line-height: 15px;">
               <div class="col-2 mt-2 mb-4">
 
-                <input type="radio" name="OrderId" id="order">
+                <input type="radio" name="OrderId" id="order" value="<%= id %>">
                 <label for="order">
               </div>
                       <h6><b><%= fullName %></b></h6>
@@ -76,8 +77,11 @@
         
   
          
-          <a href="" class="btn btn-success" style="width: 100%;">Checkout</a>
+          <input type="submit" class="btn btn-success" style="width: 100%;" value="Checkout">
         </div>
+        </form>
+
+
       </div>
     
     <%- include('../partials/_footer.ejs') %>

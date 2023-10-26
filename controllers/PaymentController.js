@@ -72,7 +72,6 @@ class PaymentController {
 
   static async downloadInvoice(req, res) {
     try {
-      console.log('testtttt');
       const { paymentId } = req.params;
       const order = await Order.findByPk(paymentId, {
         include: PaymentMethod
@@ -136,6 +135,18 @@ class PaymentController {
       await fs.writeFileSync("./invoice/invoice.pdf", result.pdf, 'base64');
       const file = path.join(__dirname, '..', '/invoice/invoice.pdf');
       res.download(file);
+    } catch (error) {
+      console.log(error);
+      res.send(error.message);
+    }
+  }
+
+
+  static async toPayment(req, res) {
+    const {OrderId} = req.body;
+    try {
+
+      res.redirect(`/products/${OrderId}/payment`);
     } catch (error) {
       console.log(error);
       res.send(error.message);
