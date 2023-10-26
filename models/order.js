@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const { formatToDollar } = require('../helper');
 module.exports = (sequelize, DataTypes) => {
   class Order extends Model {
     /**
@@ -11,13 +12,17 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       Order.belongsTo(models.PaymentMethod);
-      Order.belongsTo(models.User, { as: 'Buyer' });
+      // Order.belongsTo(models.User, { as: 'Buyer' });
+    }
+
+    get totalPriceInDollar() {
+      return formatToDollar(this.totalPrice);
     }
   }
   Order.init({
     UserId: DataTypes.INTEGER,
     ProductId: DataTypes.INTEGER,
-    jumlahItem: DataTypes.INTEGER,
+    totalItem: DataTypes.INTEGER,
     totalPrice: DataTypes.INTEGER,
     status: DataTypes.STRING,
     PaymentMethodId: DataTypes.INTEGER

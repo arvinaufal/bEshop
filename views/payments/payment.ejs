@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+  <%- include('../partials/_header.ejs') %>
+  <body>
+    <%- include('../partials/_navbar.ejs') %>
+
+    <div class="container mt-4 d-flex flex-column">
+      <div class="title container">
+        <h4>Checkout</h4>
+      </div>
+
+      <% const { totalItem, totalPriceInDollar } = order; %>
+      <% const { fullName, phone, address } = buyerDetail; %>
+      <div class="main-section row">
+        <div class="shipment-section container col-7 mt-3">
+          <div class="address-section container border rounded mb-3 p-3" style="line-height: 15px;"">
+            <h6><b>Shipping Adress</b></h6>
+            <hr>
+            <h6><b><%= fullName %></b></h6>
+            <p><%= phone %></p>
+            <p><%= address %></p>
+          </div>
+
+          <!-- product -->
+          <% const { photoUrl, name, priceInDollar, User, description } = product; %>
+          <% const { fullName: sellerName } = User.UserDetail; %>
+          <div class="product-section container border rounded mb-3 p-3" style="line-height: 15px;">
+            <h6><b><%= sellerName %></b></h6>
+            <p>Roma</p>
+
+            <!-- card -->
+            <div class="card mb-3">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img src="<%= photoUrl %>" class="img-fluid rounded-start h-100" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h6 class="card-title"><%= name %></h6>
+                    <p class="card-text"><b><%= priceInDollar %> x <%= totalItem %>pcs</b></p>
+                    <p class="card-text"><%= description %></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- <div class="total d-flex flex-row justify-content-between">
+              <h6><b>Subtotal</b></h6>
+              <h6><b><% totalPriceInDollar %></b></h6>
+            </div> -->
+          </div>
+        </div>
+        <div class="payment-section container col-4 border rounded p-3 sticky-top" style="height: 200px; box-sizing: content-box;">
+          <div class="mb-4">
+            <label for="inputState" class="form-label">Payment Method</label>
+            <select id="inputState" class="form-select" name="PaymentMethodId">
+              <option selected>Choose...</option>
+              <% paymentMethods.forEach(({ id, name: method }) => { %>
+                <option value="<%= id %>"><%= method %></option>
+              <% }) %>
+            </select>
+          </div>
+  
+          <div class="price-section d-flex flex-row justify-content-between">
+            <h5>Total Price :</h5>
+            <h5><%= totalPriceInDollar %></h5>
+          </div>
+          <a href="" class="btn btn-success" style="width: 100%;">Payyyy</a>
+        </div>
+      </div>
+    
+    <%- include('../partials/_footer.ejs') %>
+  </body>
+</html>

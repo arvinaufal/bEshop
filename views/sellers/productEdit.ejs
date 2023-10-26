@@ -1,6 +1,6 @@
 <!doctype html>
 <html lang="en">
-  <%- include('../partials/_header.ejs', { sellerId }) %>
+  <%- include('../partials/_header.ejs') %>
   <body>
     <%- include('./_navbarSeller.ejs') %>
 
@@ -23,7 +23,7 @@
             <input type="text" class="form-control" id="inputName" name="name" value="<%= name %>">
           </div>
           <div class="mb-3">
-            <label for="inputPrice" class="form-label">Price</label>
+            <label for="inputPrice" class="form-label">Price ($dollar)</label>
             <input type="number" class="form-control" id="inputPrice" name="price" value="<%= price %>">
           </div>
   
