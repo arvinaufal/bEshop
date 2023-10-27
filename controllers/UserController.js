@@ -70,7 +70,7 @@ class UserController {
                 include : UserDetail
             });
 
-            res.render('users/profileFormEdit', {user, errors, notif});
+            res.render('users/profileFormEdit', {user, errors, notif, role: req.session.role, sellerId: req.session.userId});
         } catch (error) {
             console.log(error);
             res.send(error.message);

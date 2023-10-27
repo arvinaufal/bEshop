@@ -94,7 +94,7 @@ class AuthController {
             
                     if (user.role === 'seller') {
 
-                        res.redirect(`/sellers/${user.id}`);
+                        res.redirect(`/sellers/${user.id}/products`);
                     } else if(user.role === 'buyer') {
 
                         res.redirect('/');

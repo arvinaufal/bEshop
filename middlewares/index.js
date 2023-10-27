@@ -42,4 +42,24 @@ function checkProfile(req, res, next) {
 }
 
 
-module.exports = {checkLoginStatus, checkProfile}
+function isBuyer(req, res, next) {
+    if (req.session. role !== "buyer") {
+
+        const error = `You're not allowed!`;
+        res.redirect(`/auth/login?errors=${error}`);
+    }
+    next();
+}
+
+
+function isSeller(req, res, next) {
+    if (req.session. role !== "seller") {
+
+        const error = `You're not allowed!`;
+        res.redirect(`/auth/login?errors=${error}`);
+    }
+    next();
+}
+
+
+module.exports = {checkLoginStatus, checkProfile, isSeller, isBuyer}

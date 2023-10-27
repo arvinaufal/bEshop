@@ -4,7 +4,16 @@
 <%- include('../partials/_header') %>
 
     <body>
-        <%- include('../partials/_navbar') %>
+
+        <% if (role) { %>
+         <% if (role === 'seller') { %>
+            
+            <%- include('../sellers/_navbarSeller') %>
+         <% } else { %>
+
+            <%- include('../partials/_navbar') %>
+            <% } %>
+        <% } %>
 
             <% if (errors) { %>
                 <div class="row justify-content-center mt-4 mb-4">
